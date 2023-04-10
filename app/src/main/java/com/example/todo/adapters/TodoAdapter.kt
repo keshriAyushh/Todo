@@ -32,6 +32,7 @@ class TodoAdapter(
             recyclerViewClickListener.onItemDeleteBtnClick(todos[position])
         }
         holder.title.text = todos[position].title
+
     }
 
     override fun getItemCount() = todos.size
@@ -41,7 +42,6 @@ class TodoAdapter(
         val title: TextView = itemView.findViewById(R.id.tvTodoTitle)
         val priority: TextView = itemView.findViewById(R.id.tvPriority)
         val date: TextView = itemView.findViewById(R.id.tvDate)
-        val checked: CheckBox = itemView.findViewById(R.id.cbDone)
         val delete: ExtendedFloatingActionButton = itemView.findViewById(R.id.btnDelete)
 
     }

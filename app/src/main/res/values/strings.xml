@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">TODO</string>
-    
+
     <string-array name="Priorities">
         <item>High</item>
         <item>Medium</item>

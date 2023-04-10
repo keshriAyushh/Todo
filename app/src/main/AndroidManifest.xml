@@ -12,6 +12,9 @@
         android:theme="@style/Theme.TODO"
         tools:targetApi="31">
         <activity
+            android:name=".History"
+            android:exported="false" />
+        <activity
             android:name=".AddTodo"
             android:exported="false" />
         <activity

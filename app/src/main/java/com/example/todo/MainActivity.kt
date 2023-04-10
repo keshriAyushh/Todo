@@ -11,14 +11,13 @@ import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import android.widget.Button
 import android.widget.Spinner
+import android.widget.TextView
 import android.widget.Toast
 import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.todo.adapters.TodoAdapter
 import com.example.todo.databinding.ActivityMainBinding
-import com.example.todo.model.Priority
-import com.example.todo.model.Todo
-import com.example.todo.model.TodoDatabase
+import com.example.todo.model.*
 import com.google.android.material.textfield.TextInputEditText
 import kotlinx.coroutines.*
 import java.util.*
@@ -82,6 +81,7 @@ class MainActivity : AppCompatActivity(), RecyclerViewClicksInterface {
                     } else {
                         priority = Priority.LOW
                     }
+                    dialogView.findViewById<TextView>(R.id.textView).text = "Set Priority: $priority"
                 }
 
                 override fun onNothingSelected(parent: AdapterView<*>?) {
@@ -109,10 +109,11 @@ class MainActivity : AppCompatActivity(), RecyclerViewClicksInterface {
                     GlobalScope.launch(Dispatchers.IO) {
                         database.todoDao().addTodo(Todo(0, title, priority!!, time))
                     }
+                    builder.dismiss()
                 } else {
                     Toast.makeText(this, "Empty fields are not allowed!", Toast.LENGTH_SHORT).show()
                 }
-                builder.dismiss()
+
 
             }
             cancelBtn.setOnClickListener{
